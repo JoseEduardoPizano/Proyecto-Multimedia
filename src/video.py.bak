@@ -1,0 +1,54 @@
+'''import tkinter as tk
+import vlc
+
+
+
+root = tk.Tk()
+
+frame = tk.Frame(root, width=700, height=600)
+frame.pack()
+
+display = tk.Frame(frame, bd=5)
+display.place(relwidth=1, relheight=1)
+
+Instance = vlc.Instance()
+player = Instance.media_player_new()
+Media = Instance.media_new('merlina.mp4')
+player.set_xwindow(display.winfo_id())
+player.set_media(Media)
+player.play()
+
+root.mainloop()'''
+
+# importing the time and vlc modules  
+import time, vlc  
+   
+# defining the method to play video  
+def vlc_video(src):  
+       
+    # creating an instance of vlc  
+    vlc_obj = vlc.Instance()  
+       
+    # creating a media player  
+    vlcplayer = vlc_obj.media_player_new()  
+       
+    # creating a media  
+    vlcmedia = vlc_obj.media_new(src)  
+       
+    # setting media to the player  
+    vlcplayer.set_media(vlcmedia)  
+       
+    # playing the video  
+    vlcplayer.play()  
+       
+    # waiting time  
+    time.sleep(5)  
+       
+    # getting the duration of the video  
+    video_duration = vlcplayer.get_length()  
+       
+    # printing the duration of the video  
+    print("Duration : " + str(video_duration))  
+       
+# calling the video method  
+vlc_video("merlina.mp4")  

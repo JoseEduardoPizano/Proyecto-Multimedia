@@ -1,0 +1,45 @@
+from tkinter import *
+from tkvideo import tkvideo
+from PIL import Image, ImageTk
+import dir as buscar
+import pygame
+
+
+
+pygame.init()
+
+vent_vid = Tk()
+
+width= vent_vid.winfo_screenwidth()
+height= vent_vid.winfo_screenheight() 
+
+
+AnchuraMaxima=width-300
+AlturaMaxima=height-300
+tam_boton_x = 80
+tam_boton_y = 80
+
+
+
+vent_vid.title("Mostrar imagen")
+vent_vid.geometry("%dx%d" % (width, height)) 
+
+width= vent_vid.winfo_screenwidth() - 500
+height= vent_vid.winfo_screenheight() 
+
+
+
+
+label= Label(vent_vid)
+label.pack()
+label.place(relx=.55, rely=.5, anchor='center')
+
+
+player = tkvideo("merlina.mp4", label, loop = 1, size = (AnchuraMaxima,AlturaMaxima))
+player.play()
+
+
+# Mostramos la ventana
+#vent_vid.bind("<Return>", cambiarImagen)
+vent_vid.mainloop()
+pygame.quit()
